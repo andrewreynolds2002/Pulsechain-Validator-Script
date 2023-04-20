@@ -108,7 +108,7 @@ cd blockchain
 
 # make a directory for your prisim password file
 mkdir validators
-chmod 777 pw
+chmod 777 validators
 cd validators
 nano pw.txt
 *enter your prysm wallet password, hit CRTL+X, hit y, hit enter*
@@ -133,7 +133,7 @@ sudo docker run -d \
 -p 6060:6060 \
 -v /blockchain:/blockchain \
 registry.gitlab.com/pulsechaincom/go-pulse:latest \
---pulsechain-testnet-v3 \
+--pulsechain-testnet-v4 \
 --datadir=/blockchain/execution \
 --txlookuplimit 0 \
 --gpo.ignoreprice 1 \
@@ -162,7 +162,7 @@ sudo docker run \
 -p 42069:42069 -p 42069:42069/udp \
 -v /blockchain:/blockchain \
 registry.gitlab.com/pulsechaincom/erigon-pulse:latest \
---chain=pulsechain-testnet-v3 \
+--chain=pulsechain-testnet-v4 \
 --datadir=/blockchain/execution \
 --externalcl \
 --gprune=4096 \
@@ -189,12 +189,12 @@ sudo docker run -d \
 -p 12000:12000/udp \
 -p 4000:4000/tcp \
 registry.gitlab.com/pulsechaincom/prysm-pulse/beacon-chain:latest \
---pulsechain-testnet-v3 \
+--pulsechain-testnet-v4 \
 --jwt-secret=/blockchain/jwt.hex \
 --datadir=/blockchain/consensus \
 --suggested-fee-recipient=0x88830748cD6F9bD2120864487BF79900000000 \
---checkpoint-sync-url "https://checkpoint.v3.testnet.pulsechain.com" \
---genesis-beacon-api-url "https://checkpoint.v3.testnet.pulsechain.com" \
+--checkpoint-sync-url "https://checkpoint.v4.testnet.pulsechain.com" \
+--genesis-beacon-api-url "https://checkpoint.v4.testnet.pulsechain.com" \
 --grpc-gateway-host "0.0.0.0" \
 --rpc-host "0.0.0.0" \
 --execution-endpoint "http://172.18.0.2:8551" \
@@ -217,13 +217,13 @@ sudo docker run -d \
 -p 8080:8080/tcp \
 registry.gitlab.com/pulsechaincom/lighthouse-pulse:latest \
 lighthouse bn \
---network=pulsechain_testnet_v3 \
+--network=pulsechain_testnet_v4 \
 --execution-jwt=/blockchain/jwt.hex \
 --datadir=/blockchain/consensus \
 --disable-deposit-contract-sync \
 --validator-monitor-auto \
 --execution-endpoint=http://172.18.0.2:8551 \
---checkpoint-sync-url https://checkpoint.v3.testnet.pulsechain.com \
+--checkpoint-sync-url https://checkpoint.v4.testnet.pulsechain.com \
 --http-address 0.0.0.0 \
 --http \
 --metrics-port 8080 \
@@ -263,7 +263,7 @@ sudo docker run \
 --name=validator \
 -v /blockchain/validators:/wallet \
 registry.gitlab.com/pulsechaincom/prysm-pulse/validator:latest \
---pulsechain-testnet-v3 \
+--pulsechain-testnet-v4 \
 --suggested-fee-recipient=0x88830748cD6F9bD2120864487BF79900000000 \
 --wallet-dir /wallet \
 --wallet-password-file=/wallet/pw.txt \
@@ -290,7 +290,7 @@ sudo docker run \
 -v /blockchain/validators:/wallet \
 registry.gitlab.com/pulsechaincom/lighthouse-pulse:latest \
 lighthouse vc \
---network=pulsechain_testnet_v3 \
+--network=pulsechain_testnet_v4 \
 --http-address "0.0.0.0" \
 --http \
 --unencrypted-http-transport \
@@ -336,7 +336,7 @@ sudo docker start validator
 
 
 #importing validator account to lighthouse
-sudo -u [username] docker run -it --network=pulsechain -v /blockchain:/blockchain registry.gitlab.com/pulsechaincom/lighthouse-pulse lighthouse --network pulsechain_testnet_v3 account validator import --directory /blockchain/validators/validator_keys --datadir=/blockchain/
+sudo -u [username] docker run -it --network=pulsechain -v /blockchain:/blockchain registry.gitlab.com/pulsechaincom/lighthouse-pulse lighthouse --network pulsechain_testnet_v4 account validator import --directory /blockchain/validators/validator_keys --datadir=/blockchain/
 
 
 
