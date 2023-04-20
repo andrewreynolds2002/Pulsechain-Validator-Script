@@ -247,7 +247,7 @@ sudo python3 setup.py install
 sudo ./deposit.sh install
 
 #BEFORE running below commands replace withdrawal address with one of your own
-sudo ./deposit.sh new-mnemonic --num_validators=1 --mnemonic_language=english --chain=pulsechain-testnet-v3 --folder=/blockchain/validators --eth1_withdrawal_address=0x88830748cD6F9bD2120864487BF79900000000
+sudo ./deposit.sh new-mnemonic --num_validators=1 --mnemonic_language=english --chain=pulsechain-testnet-v4 --folder=/blockchain/validators --eth1_withdrawal_address=0x88830748cD6F9bD2120864487BF79900000000
 
 ############# VALIDATOR CLIENT OPTIONS################
 #### prysm validator ####
