@@ -102,6 +102,7 @@ sudo apt-get update -y
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose
 
 # create a directory for blockchain data and adjust permissions 
+cd /
 mkdir blockchain
 chmod 777 blockchain
 cd blockchain
