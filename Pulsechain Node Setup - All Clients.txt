@@ -337,7 +337,7 @@ sudo docker start validator
 
 
 #importing validator account to lighthouse
-sudo -u [username] docker run -it --network=pulsechain -v /blockchain:/blockchain registry.gitlab.com/pulsechaincom/lighthouse-pulse lighthouse --network pulsechain_testnet_v4 account validator import --directory /blockchain/validators/validator_keys --datadir=/blockchain/
+sudo docker run -it --network=pulsechain -v /blockchain:/blockchain registry.gitlab.com/pulsechaincom/lighthouse-pulse lighthouse --network pulsechain_testnet_v4 account validator import --directory /blockchain/validators/validator_keys --datadir=/blockchain/
 
 
 
