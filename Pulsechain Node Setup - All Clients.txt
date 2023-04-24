@@ -115,7 +115,7 @@ mkdir validators
 chmod 750 validators
 cd validators
 nano pw.txt
-*enter your prysm wallet password, hit CRTL+X, hit y, hit enter*
+*enter your wallet password, hit CRTL+X, hit y, hit enter*
 cd ~
 
 # generate an SSL certificate
