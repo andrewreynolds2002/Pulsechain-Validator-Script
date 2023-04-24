@@ -310,6 +310,10 @@ lighthouse vc \
 # at password prompt enter the prysm wallet password you created earlier 
 
 
+#importing validator account to lighthouse
+sudo docker run -it --network=pulsechain -v /blockchain:/blockchain registry.gitlab.com/pulsechaincom/lighthouse-pulse lighthouse --network pulsechain_testnet_v4 account validator import --directory /blockchain/validators/validator_keys --datadir=/blockchain/
+
+
 
 # Controlling Your Nodes
 
@@ -337,10 +341,6 @@ sudo docker start consensus
 sudo docker start validator
 
 #to restart removed containers use above docker commands in full (as though setting up for first time)
-
-
-#importing validator account to lighthouse
-sudo docker run -it --network=pulsechain -v /blockchain:/blockchain registry.gitlab.com/pulsechaincom/lighthouse-pulse lighthouse --network pulsechain_testnet_v4 account validator import --directory /blockchain/validators/validator_keys --datadir=/blockchain/
 
 
 
