@@ -69,8 +69,10 @@ sudo ufw allow 3000/tcp
 sudo ufw allow 22/tcp
 sudo ufw allow 3389/tcp
 
+# note firewall will be disabled until you run this command: 
+sudo ufw enable
 
-#To CHECK Firewall Settings
+# CHECK Firewall Settings
 
 # to show rules applied
 sudo ufw status numbered
@@ -78,16 +80,17 @@ sudo ufw status numbered
 # to show firewall status: 
 sudo ufw status
 
-# note firewall will be disabled until you run this command: 
-sudo ufw enable
 
 # When setting up your network rounters port forwarding use these settings
 
-# INBOUND NAT Rules
-# port 30303 both UDP and TCP forwarding - execution node's listener port
-# port 12000 UDP - beacon node peer discovery
-# port 13000 TCP - ongoing peer communications
-# port 9000 both UDP and TCP forwarding - Erigon ongoing peer communications
+# INBOUND
+# port 30303 both Geth UDP and TCP forwarding - execution node's listener port
+# port 12000 UDP - Pyrsm beacon node peer discovery
+# port 13000 TCP - Pyrsm ongoing peer communications
+# port 9000 TCP - Lighthouse ongoing peer communications
+
+# OUTBOUND
+# InternalNodeIP/any both UDP and TCP - allow your node to use random ports for communiction
 
 ################# Node Docker Configuration ####################
 
