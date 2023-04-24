@@ -101,15 +101,15 @@ sudo apt-get update -y
 
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose
 
-# create a directory for blockchain data and adjust permissions 
+# create a directory for blockchain data and adjust permissions, this will be the main dir for all your clients and their sub-dirs
 cd /
 mkdir blockchain
-chmod 777 blockchain
+chmod 750 blockchain
 cd blockchain
 
-# make a directory for your prisim password file
+# make a sub-directory for your Validators data
 mkdir validators
-chmod 777 validators
+chmod 750 validators
 cd validators
 nano pw.txt
 *enter your prysm wallet password, hit CRTL+X, hit y, hit enter*
