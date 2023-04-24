@@ -359,6 +359,41 @@ sudo docker run \
 -v /path/to/prometheus.yml:/etc/prometheus/prometheus.yml \
 prom/prometheus
 
+# here is an example of a working prometheus.yml config which refereneces the IP address assigned to the docker containters
+----------------------------------------------------------------------------
+global:
+  scrape_interval:     15s # By default, scrape targets every 15 seconds.
+
+  # Attach these labels to any time series or alerts when communicating with
+  # external systems (federation, remote storage, Alertmanager).
+  external_labels:
+    monitor: 'codelab-monitor'
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+   - job_name: 'node_exporter'
+     static_configs:
+       - targets: ['localhost:9100']
+   - job_name: 'validator'
+     static_configs:
+       - targets: ['172.18.0.4:8081']
+   - job_name: 'beacon node'
+     static_configs:
+       - targets: ['172.18.0.3:8080']
+   - job_name: 'slasher'
+     static_configs:
+       - targets: ['172.18.0.3:8082']
+   - job_name: 'geth'
+     scrape_interval: 15s
+     scrape_timeout: 10s
+     metrics_path: /debug/metrics/prometheus
+     scheme: http
+     static_configs:
+       - targets: ['172.18.0.2:6060']
+-------------------------------------------------------------------------
+
+
 # Install gethexporter
 sudo docker pull hunterlong/gethexporter
 sudo docker run -it -d -p 9090:9090 -e "GETH=http://<ipordomainofgethserver>:8545" hunterlong/gethexporter
