@@ -123,7 +123,7 @@ openssl rand -hex 32 | sudo tee blockchain/jwt.hex > /dev/null
 
 ############# EXEUCTION CLIENT OPTIONS################
 #### GETH ####
-docker pull registry.gitlab.com/pulsechaincom/go-pulse:latest
+sudo docker pull registry.gitlab.com/pulsechaincom/go-pulse:latest
 
 # docker for geth node
 sudo docker run -d \
@@ -153,7 +153,7 @@ registry.gitlab.com/pulsechaincom/go-pulse:latest \
 --ignore-legacy-receipts
 
 #### Erigon-Pulse ####
-docker pull registry.gitlab.com/pulsechaincom/erigon-pulse:latest
+sudo docker pull registry.gitlab.com/pulsechaincom/erigon-pulse:latest
 
 sudo docker run \
 -d \
@@ -181,7 +181,7 @@ registry.gitlab.com/pulsechaincom/erigon-pulse:latest \
 #### prysm ####
 #BEFORE running below commands replace recipient address with one of your own
 
-docker pull registry.gitlab.com/pulsechaincom/prysm-pulse/beacon-chain:latest
+sudo docker pull registry.gitlab.com/pulsechaincom/prysm-pulse/beacon-chain:latest
 
 sudo docker run -d \
 --network=pulsechain \
@@ -208,7 +208,7 @@ registry.gitlab.com/pulsechaincom/prysm-pulse/beacon-chain:latest \
 
  
 #### lighthouse-Pulse ####
-docker pull registry.gitlab.com/pulsechaincom/lighthouse-pulse:latest
+sudo docker pull registry.gitlab.com/pulsechaincom/lighthouse-pulse:latest
 
 sudo docker run -d \
 --network=pulsechain \
@@ -257,7 +257,7 @@ sudo ./deposit.sh new-mnemonic --num_validators=1 --mnemonic_language=english --
 #### prysm validator ####
 #BEFORE running below commands replace recipient address with one of your own, and add your own graffiti
 
-docker pull registry.gitlab.com/pulsechaincom/prysm-pulse/validator:latest
+sudo docker pull registry.gitlab.com/pulsechaincom/prysm-pulse/validator:latest
 
 sudo docker run \
 -it \
@@ -283,7 +283,7 @@ registry.gitlab.com/pulsechaincom/prysm-pulse/validator:latest \
 #### Lighthouse-Pulse ####
 #BEFORE running below commands replace recipient address with one of your own, and add your own graffiti
 
-docker pull registry.gitlab.com/pulsechaincom/lighthouse-pulse:latest
+sudo docker pull registry.gitlab.com/pulsechaincom/lighthouse-pulse:latest
 
 sudo docker run \
 -it \
