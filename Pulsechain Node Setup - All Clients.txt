@@ -360,6 +360,7 @@ sudo docker run \
 prom/prometheus
 
 # here is an example of a working prometheus.yml config which refereneces the IP address assigned to the docker containters
+# prometheus.yml file example also in this repo
 ----------------------------------------------------------------------------
 global:
   scrape_interval:     15s # By default, scrape targets every 15 seconds.
